@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilayat Of Yanqul - Interactive Media Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>اكتشف روعة ولاية ينقل: معرض الوسائط التفاعلي</h1>
+        <button id="mode-toggle" aria-label="Toggle display mode">🌙</button>
+    </header>
+
+    <main class="container">
+        <section id="interactive-video-section" class="card">
+            <h2>القصة التفاعلية لحصن ينقل</h2>
+            
+            <div id="video-info" class="video-info">
+                قيد التشغيل حالياً: مقدمة عن حصن ينقل
+            </div>
+            
+            <div class="video-wrapper">
+                <video id="main-video" controls poster="media/video-poster.jpg">
+                    <source id="video-source-mp4" src="media/video-intro.mp4" type="video/mp4">
+                    <source id="video-source-webm" src="media/video-intro.webm" type="video/webm">
+                    متصفحك لا يدعم وسم الفيديو.
+                </video>
+            </div>
+            
+            <div id="choice-buttons" class="choice-panel">
+                <p>ماذا تود أن تستكشف لاحقاً؟</p>
+               <button class="choice-btn" data-video="media/video-intro.mp4" data-title="مقدمة عن حصن ينقل">
+                    العودة للمقدمة
+                </button>
+                <button class="choice-btn" data-video="media/Nizwa.mp4" data-title="ولاية نزوى (الداخلية)">
+                    ولاية نزوى
+                </button>
+                <button class="choice-btn" data-video="media/Bahla.mp4" data-title="ولاية بهلاء (الداخلية)">
+                    ولاية بهلاء
+                </button>
+                <button class="choice-btn" data-video="media/Nizwa_Souq.mp4" data-title="سوق نزوى">
+                    سوق نزوى
+                </button>
+                <button class="choice-btn" data-video="media/Yanqulfort.mp4" data-title="حصن ينقل">
+                    حصن ينقل
+                </button>
+            </div>
+        </section>
+
+        <section id="responsive-images" class="card">
+            <h2>تعديل الصور الاحترافي: حصن ينقل</h2>
+            <div class="responsive-image-container">
+                <img src="media/Yanqul_Fort.jpg" 
+                     alt="صورة لحصن ينقل تظهر تصحيح الألوان وإزالة العناصر" 
+                     class="yanqul-image"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/8b4513/ffffff?text=Yanqul+Fort+Image+Not+Found'; this.alt='صورة احتياطية: حصن ينقل';">
+            </div>
+            <p class="image-caption">توضح هذه الصورة مهارات معالجة الألوان والاستجابة متعددة الكثافات.</p>
+        </section>
+
+        <section id="image-showcase" class="card">
+            <h2>عرض ثلاثي الأبعاد: نموذج حصن ينقل</h2>
+            <div class="image-container">
+                <img src="media/3d.jpeg" 
+                     alt="نموذج ثلاثي الأبعاد لحصن ينقل" 
+                     class="yanqul-image showcase-image"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/8b4513/ffffff?text=Yanqul+3D+Model+Image'; this.alt='نموذج ثلاثي الأبعاد لحصن ينقل';">
+            </div>
+            <p>تعرض هذه الصورة ميزات النمذجة ثلاثية الأبعاد والميزات المعمارية لحصن ينقل.</p>
+        </section>
+        
+        <section id="extra-features" class="card">
+             <div id="easter-egg-zone">
+                <h3>هل أنت مستكشف ماهر؟</h3>
+                <p>حاول النقر على هذه المنطقة عدة مرات. قد تكتشف شيئاً غير متوقع!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ولاية ينقل - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

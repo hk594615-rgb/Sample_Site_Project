@@ -1,0 +1,256 @@
+/* CSS Variables for consistent theming */
+:root {
+    --color-primary: #a0522d; /* Sienna: لون ترابي أعمق */
+    --color-secondary: #d2b48c; /* Tan: لون رملي فاتح */
+    --color-text-light: #f4f4f4; 
+    --color-text-dark: #333333; 
+    --color-bg-light: #f9f9f9; 
+    --color-bg-dark: #1e1e1e; /* خلفية داكنة جداً للوضع الليلي */
+    --shadow-light: 0 6px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Default (Light Mode) Setup */
+    --main-bg: var(--color-bg-light);
+    --text-color: var(--color-text-dark);
+    --header-bg: var(--color-primary);
+    --card-bg: white;
+    --footer-bg: var(--color-text-dark);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --main-bg: var(--color-bg-dark);
+    --text-color: var(--color-text-light);
+    --header-bg: #4b443c; /* لون داكن لكن ترابي */
+    --card-bg: #2a2a2a; /* لون داكن للكارد */
+    --footer-bg: #111111;
+    --shadow-light: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Global Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    line-height: 1.7; /* زيادة سطرية لتحسين القراءة */
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    max-width: 1200px; /* توسيع بسيط للعرض */
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Mode Toggle */
+.main-header {
+    background-color: var(--header-bg);
+    color: var(--color-text-light);
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-header h1 {
+    font-size: 2rem;
+}
+
+#mode-toggle {
+    background: none;
+    border: 1px solid var(--color-text-light);
+    color: var(--color-text-light);
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    border-radius: 50%; /* شكل دائري جميل */
+    transition: all 0.3s;
+}
+
+#mode-toggle:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border-color: var(--color-secondary);
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--card-bg);
+    padding: 2.5rem; /* زيادة الحجم الداخلي */
+    border-radius: 15px; /* حواف أكثر استدارة */
+    box-shadow: var(--shadow-light);
+    margin-bottom: 2.5rem;
+    border-left: 5px solid var(--color-primary); /* خط جانبي لجمالية أكثر */
+    transition: all 0.4s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card h2 {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.8rem;
+    font-size: 2rem;
+}
+
+body.dark-mode .card h2 {
+    color: var(--color-secondary);
+}
+
+/* Video Section */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-info {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+    background-color: rgba(210, 180, 140, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Choice Buttons (Improved) */
+.choice-panel {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.choice-panel p {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.choice-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 8px;
+    border-radius: 8px; /* شكل مربع بسيط */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.choice-btn:hover {
+    background-color: #b06540;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.choice-btn.active {
+    background-color: #3f681a; /* لون أخضر/زيتوني للإشارة إلى الفيديو الحالي */
+    transform: scale(1.02);
+    box-shadow: 0 0 0 3px var(--color-secondary), 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Image Showcase */
+.responsive-image-container, .image-container {
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.yanqul-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.5s;
+}
+
+.image-container:hover .yanqul-image {
+    transform: scale(1.03);
+}
+
+.image-caption {
+    font-style: italic;
+    text-align: center;
+    color: var(--color-secondary);
+    margin-top: 0.8rem;
+    border-top: 1px dashed rgba(var(--color-text-dark), 0.2);
+    padding-top: 0.8rem;
+}
+
+/* Easter Egg Zone (Improved for visual feedback) */
+#easter-egg-zone {
+    text-align: center;
+    padding: 3rem;
+    border: 4px dashed var(--color-secondary); /* لون مميز للإطار */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: rgba(210, 180, 140, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.dark-mode #easter-egg-zone {
+    background-color: rgba(210, 180, 140, 0.15);
+    border-color: var(--color-secondary);
+}
+
+#easter-egg-zone:hover {
+    background-color: rgba(210, 180, 140, 0.25);
+    border-color: var(--color-primary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .choice-btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+}
